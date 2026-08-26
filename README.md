@@ -6,8 +6,6 @@ A simple web-based Employee Management System built with Python and Flask. The a
 
 **Application:** https://employee-cloud-project.onrender.com
 
-**GitHub Repository:** https://github.com/sujay-bb-22/employee-cloud-project
-
 ## Features
 
 * Add new employees
@@ -224,11 +222,6 @@ Each employee record contains:
 * Position
 
 The database is initialized automatically when the application runs.
-
-## Project Links
-
-* **Live Application:** https://employee-cloud-project.onrender.com
-* **GitHub Repository:** https://github.com/sujay-bb-22/employee-cloud-project
 
 ## Notes
 
