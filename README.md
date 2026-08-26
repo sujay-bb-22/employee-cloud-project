@@ -1,29 +1,34 @@
 # Cloud Deployment of an Employee Management System Using Python and Flask
 
-## Project Description
+A simple web-based Employee Management System built with Python and Flask. The application allows users to manage employee records through a clean interface and demonstrates how a Flask application can be deployed to a cloud hosting platform.
 
-This is a simple beginner-friendly Cloud Computing academic project. It shows how a small web-based Employee Management System can be built with Python, Flask, HTML, CSS, and SQLite, then prepared for deployment to a public cloud hosting platform.
+## Live Demo
 
-The application supports basic employee record management for a small organization.
+**Application:** https://employee-cloud-project.onrender.com
+
+**GitHub Repository:** https://github.com/sujay-bb-22/employee-cloud-project
 
 ## Features
 
-- Add a new employee
-- View all employees
-- Edit employee information
-- Delete an employee with browser confirmation
-- Automatic SQLite database creation
-- Success messages after important operations
-- Simple professional interface suitable for a college project
+* Add new employees
+* View all employee records
+* Edit existing employee information
+* Delete employees with confirmation
+* Automatic SQLite database initialization
+* Success messages for important operations
+* Clean and responsive user interface
+* Cloud deployment using Render
 
 ## Technology Stack
 
-- Python 3
-- Flask
-- HTML5
-- CSS3
-- SQLite
-- Gunicorn for cloud deployment
+* Python 3
+* Flask
+* HTML5
+* CSS3
+* SQLite
+* Gunicorn
+* GitHub
+* Render
 
 ## Project Structure
 
@@ -45,113 +50,188 @@ employee-cloud-project/
     `-- style.css
 ```
 
-## Installation Instructions
+## Installation
 
-Open Windows PowerShell in the project folder and run the following commands.
+### 1. Clone the Repository
 
-```powershell
-cd employee-cloud-project
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+```bash
+git clone https://github.com/sujay-bb-22/employee-cloud-project.git
 ```
 
-If PowerShell blocks virtual environment activation, run this command once in the same PowerShell window and then try activation again:
+### 2. Move into the Project Directory
+
+```bash
+cd employee-cloud-project
+```
+
+### 3. Create a Virtual Environment
+
+```powershell
+python -m venv venv
+```
+
+### 4. Activate the Virtual Environment
+
+For Windows PowerShell:
+
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+If PowerShell blocks activation, run:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-## How to Run Locally
+Then activate the virtual environment again.
 
-After installing dependencies, start the Flask application:
+### 5. Install Dependencies
+
+```powershell
+pip install -r requirements.txt
+```
+
+## Running the Application
+
+Start the Flask application:
 
 ```powershell
 python app.py
 ```
 
-Open this URL in a browser:
+Open the following URL in your browser:
 
 ```text
 http://127.0.0.1:5000
 ```
 
-## Required Commands
+To stop the application:
 
-Create a virtual environment:
-
-```powershell
-python -m venv venv
-```
-
-Activate the virtual environment on Windows PowerShell:
-
-```powershell
-.\venv\Scripts\Activate.ps1
-```
-
-Install dependencies:
-
-```powershell
-pip install -r requirements.txt
-```
-
-Run the application:
-
-```powershell
-python app.py
-```
-
-Stop the application:
-
-```powershell
+```text
 Ctrl+C
 ```
 
-## Cloud Deployment Overview
+## Usage
 
-This project is prepared for deployment from a GitHub repository to a free cloud hosting platform that supports Python web apps.
+The application supports the following operations:
 
-Basic deployment steps:
+### Add Employee
 
-1. Create a GitHub repository.
-2. Upload or push this project folder to the repository.
-3. Create a new web service on the cloud hosting platform.
-4. Connect the GitHub repository.
-5. Set the build command to:
+Add a new employee by providing:
+
+* Name
+* Email
+* Department
+* Position
+
+### View Employees
+
+The home page displays all employee records in a table.
+
+### Edit Employee
+
+Update the details of an existing employee.
+
+### Delete Employee
+
+Remove an employee record after confirming the deletion.
+
+## Cloud Deployment
+
+The application is deployed as a web service on Render.
+
+### Deployment Configuration
+
+**Build Command**
 
 ```text
 pip install -r requirements.txt
 ```
 
-6. Set the start command to:
+**Start Command**
 
 ```text
 gunicorn app:app
 ```
 
-The included `Procfile` also contains the Gunicorn start command:
+The project also includes a `Procfile` with the following configuration:
 
 ```text
 web: gunicorn app:app
 ```
 
-## Application Screenshots
+### Deployment Flow
 
-Add screenshots here after running the project locally.
+```text
+Local Development
+       |
+       v
+GitHub Repository
+       |
+       v
+Render Web Service
+       |
+       v
+Live Application
+```
 
-- Home page screenshot: `screenshots/home-page.png`
-- Add employee page screenshot: `screenshots/add-employee-page.png`
-- Edit employee page screenshot: `screenshots/edit-employee-page.png`
+## Cloud Deployment Model
 
-## Notes About SQLite on Cloud Platforms
+The application uses a public cloud deployment model.
 
-SQLite is good for a simple academic demo because it is easy to understand and does not require a separate database server.
+The source code is hosted on GitHub and connected to Render, which builds and deploys the application as a publicly accessible web service.
 
-On many cloud hosting platforms, SQLite data may not be permanent if the server restarts or redeploys. For a real production system, use a managed database such as PostgreSQL. For this beginner project, SQLite is acceptable because the goal is to demonstrate cloud deployment of a simple Flask application.
+## Application Architecture
 
-cd C:\Users\sujay\Documents\Codex\2026-08-23\files-pasted-by-the-user-project\employee-cloud-project
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-python app.py
+```text
++------------------+
+|   User Browser   |
++------------------+
+          |
+          v
++------------------+
+|  Render Cloud    |
+|   Web Service    |
++------------------+
+          |
+          v
++------------------+
+| Gunicorn Server  |
++------------------+
+          |
+          v
++------------------+
+| Flask Application|
++------------------+
+          |
+          v
++------------------+
+| SQLite Database  |
++------------------+
+```
+
+## Database
+
+The application uses SQLite to store employee records.
+
+Each employee record contains:
+
+* ID
+* Name
+* Email
+* Department
+* Position
+
+The database is initialized automatically when the application runs.
+
+## Project Links
+
+* **Live Application:** https://employee-cloud-project.onrender.com
+* **GitHub Repository:** https://github.com/sujay-bb-22/employee-cloud-project
+
+## Notes
+
+SQLite is used to keep the application lightweight and simple. On cloud platforms with ephemeral storage, database changes may not persist after redeployment or certain service restarts.
+
+For a production deployment, a managed database such as PostgreSQL would be a better choice.
