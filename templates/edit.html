@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page-shell narrow">
+        <header class="page-header">
+            <div>
+                <p class="eyebrow">Update Record</p>
+                <h1>Edit Employee</h1>
+            </div>
+            <a class="button secondary" href="{{ url_for('index') }}">Back</a>
+        </header>
+
+        <section class="content-panel">
+            {% if errors %}
+                <div class="alert error">
+                    <strong>Please fix the following:</strong>
+                    <ul>
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <form class="employee-form" method="POST" action="{{ url_for('edit_employee', employee_id=employee.id) }}">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" value="{{ employee.name }}" required>
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" value="{{ employee.email }}" required>
+
+                <label for="department">Department</label>
+                <input id="department" name="department" type="text" value="{{ employee.department }}" required>
+
+                <label for="position">Position</label>
+                <input id="position" name="position" type="text" value="{{ employee.position }}" required>
+
+                <div class="form-actions">
+                    <button class="button primary" type="submit">Update</button>
+                    <a class="button secondary" href="{{ url_for('index') }}">Cancel</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
